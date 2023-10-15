@@ -23,7 +23,7 @@ class Poll {
     async createPoll() {
         try {
             await getDb().collection('polls').insertOne({ title: this.title, options: this.options, total: this.total, by: this.by })
-            console.log("saved\n")
+            
         } catch (error) {
             console.log(error)
         }

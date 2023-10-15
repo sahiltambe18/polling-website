@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
 const dotenv = require('dotenv');
+const cors = require('cors');
 dotenv.config();
 
 const { connectToDatabase, getDb } = require('./Data/db');
@@ -12,7 +13,7 @@ const server = http.createServer(app);
 const io = socketIO(server);
 
 app.use(express.json())
-
+app.use(cors())
 app.use(pollRoutes); 
 
 connectToDatabase()
